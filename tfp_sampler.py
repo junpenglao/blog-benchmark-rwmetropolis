@@ -6,7 +6,7 @@ import tensorflow_probability as tfp
 tfd = tfp.distributions
 
 
-def gen_mixture_log_prob_tfd(weights, loc, scale):
+def gen_mixture_log_prob(weights, loc, scale):
     def mixture_log_prob(x):
         return tf.math.reduce_logsumexp(
             tf.math.log(weights) + tfd.Normal(loc, scale).log_prob(x),
